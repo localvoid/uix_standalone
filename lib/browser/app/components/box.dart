@@ -1,5 +1,6 @@
 library uix_standalone.app.component.box;
 
+import 'dart:html' as html;
 import 'package:uix_standalone/browser/uix/uix.dart' hide ComponentMeta;
 import 'package:uix_standalone/standalone/uix/src/annotations.dart';
 import '../data.dart';
@@ -13,16 +14,27 @@ class Box extends Component<BoxData> {
     invalidate();
   }
 
+  int _counter = 0;
+
+  void init() {
+    element.onClick.matches('.Button').listen(_handleClick);
+  }
+
+  void _handleClick(html.MouseEvent e) {
+    e.preventDefault();
+    _counter++;
+    invalidate();
+  }
   updateView() {
     if (isMounting) {
       updateRoot(vRoot(type: 'Box')([
-        vElement('div')('Not Mounted'),
+        vElement('div')(vElement('button', type: 'Button', attrs: const {'disabled': 'true'})('Not Mounted')),
         vElement('div')(data.message)
       ]));
     }
     updateRoot(vRoot(type: 'Box')([
-      vElement('div')('Mounted'),
-      vElement('div')(data.message)
+      vElement('div')(vElement('button', type: 'Button')('Click Me!')),
+      vElement('div')('[$_counter] ${data.message}')
     ]));
   }
 }

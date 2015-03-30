@@ -13,7 +13,7 @@ void main() {
   initUix();
 
   final handler = new shelf.Cascade()
-    .add(createStaticHandler('../build/web/', defaultDocument: 'index.html'))
+    .add(createStaticHandler('./build/web/', defaultDocument: 'index.html'))
     .add(_echoRequest).handler;
 
   for (var i = 0; i < N; i++) {

@@ -21,7 +21,7 @@ abstract class Component<P> extends RevisionedNode with StreamListenerNode imple
 
   final String tag = 'div';
 
-  int flags = dirtyFlag;
+  int flags = dirtyFlag | mountingFlag;
   int depth = 0;
   Component _parent;
   P data_;
@@ -221,7 +221,7 @@ abstract class Component<P> extends RevisionedNode with StreamListenerNode imple
 
 abstract class SvgComponent<P> extends Component<P> {
   final String tag = 'svg';
-  int flags = Component.dirtyFlag | Component.svgFlag;
+  int flags = Component.dirtyFlag | Component.mountingFlag | Component.svgFlag;
 
   void create() {
   }

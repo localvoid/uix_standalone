@@ -13,9 +13,11 @@ class Box extends Component<BoxData> {
   }
 
   updateView() {
-    updateRoot(vRoot(type: 'Box')([
-      vElement('div')('Not Mounted'),
-      vElement('div')(data.message)
-    ]));
+    if (isMounting) {
+      updateRoot(vRoot(type: 'Box')([
+        vElement('div')(vElement('button', type: 'Button', attrs: const {'disabled': 'true'})('Not Mounted')),
+        vElement('div')(data.message)
+      ]));
+    }
   }
 }
