@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "uix_standalone",
+  "version": "0.0.1",
+  "description": "uix standalone",
+  "license": "BSD",
+  "homepage": "https://github.com/localvoid/uix_standalone/",
+  "repository": "https://github.com/localvoid/uix_standalone/",
+  "author": {
+    "name": "Boris Kaul",
+    "email": "localvoid@gmail.com",
+    "url": "https://github.com/localvoid"
+  },
+  "keywords": [
+    "virtual",
+    "dom",
+    "virtualdom",
+    "vdom",
+    "diff",
+    "browser",
+    "uix"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.10",
+    "gulp-preprocess": "^1.2.0"
+  }
+}
